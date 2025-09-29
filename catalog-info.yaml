@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-utlcpkmi-gitops
+  description: This is GitOps manifest for go-utlcpkmi   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-utlcpkmi
+    backstage.io/kubernetes-id: go-utlcpkmi 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: rhtap-rhdh-qe/go-utlcpkmi-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: rhtap-rhdh-qe.go-utlcpkmi-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-utlcpkmi
